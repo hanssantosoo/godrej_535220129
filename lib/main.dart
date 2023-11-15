@@ -31,6 +31,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int selectedTabIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -158,45 +160,9 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  TextButton(
-                    onPressed: () {
-                      // Handle "Promosi" press
-                    },
-                    child: Text(
-                      'Promosi',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // Handle "Nama Produk" press
-                    },
-                    child: Text(
-                      'Nama Produk',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // Handle "Terlaris" press
-                    },
-                    child: Text(
-                      'Terlaris',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
+                  _buildNavItem('Promosi', 0),
+                  _buildNavItem('Nama Produk', 1),
+                  _buildNavItem('Terlaris', 2),
                 ],
               ),
             ),
@@ -349,6 +315,37 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildNavItem(String text, int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedTabIndex = index;
+        });
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: selectedTabIndex == index ? Colors.blue : Colors.transparent,
+              width: 2,
+            ),
+          ),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: selectedTabIndex == index ? 18 : 16,
+              color: selectedTabIndex == index ? Colors.blue : Colors.grey,
+            ),
+          ),
+        ),
       ),
     );
   }
