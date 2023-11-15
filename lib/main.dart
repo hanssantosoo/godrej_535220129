@@ -66,7 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Stack(
         children: [
-          // Subscribe section
           Positioned(
             top: 0,
             left: 0,
@@ -79,21 +78,17 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-
-          // Image slider section
           Positioned(
-            top: 200, // Adjust the position as needed
+            top: 200,
             left: 0,
             right: 0,
             child: Container(
-              height: 150.0, // Set the desired height
+              height: 150.0,
               child: CarouselSlider(
                 items: [
-                  // Add your local image widgets here
-                  // Example:
                   Image.asset(
                     'assets/image1.jpg',
-                    fit: BoxFit.cover, // Ensure the image is cropped to cover the container
+                    fit: BoxFit.cover,
                   ),
                   Image.asset(
                     'assets/image2.jpg',
@@ -107,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 options: CarouselOptions(
                   enlargeCenterPage: true,
                   autoPlay: true,
-                  aspectRatio: 16 / 9, // Fixed aspect ratio
+                  aspectRatio: 16 / 9,
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enableInfiniteScroll: true,
                   autoPlayAnimationDuration: Duration(milliseconds: 800),
@@ -116,10 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-
-          // Text below the carousel
           Positioned(
-            top: 360, // Adjust the position as needed
+            top: 360,
             left: 16,
             child: Text(
               'Belanja berdasarkan kategori',
@@ -129,10 +122,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-
-          // Four squares
           Positioned(
-            top: 400, // Adjust the position as needed
+            top: 400,
             left: 16,
             child: Row(
               children: [
@@ -146,8 +137,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-
-          // Text below the squares
           Positioned(
             top: 510,
             left: 16,
@@ -159,7 +148,59 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-
+          Positioned(
+            top: 540,
+            left: 0,
+            right: 0,
+            child: Container(
+              color: Colors.white,
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      // Handle "Promosi" press
+                    },
+                    child: Text(
+                      'Promosi',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      // Handle "Nama Produk" press
+                    },
+                    child: Text(
+                      'Nama Produk',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      // Handle "Terlaris" press
+                    },
+                    child: Text(
+                      'Terlaris',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           Column(
             children: [
               SizedBox(height: 30),
